@@ -11,7 +11,7 @@ class registerPage extends StatefulWidget {
 class _RegisterState extends State<registerPage> {
   String firstname = '',
       lastname = '',
-      loginName = '',
+      login = '',
       password = '',
       email = '',
       message = "",
@@ -95,7 +95,7 @@ class _RegisterState extends State<registerPage> {
                   left: 15.0, right: 15.0, top: 15, bottom: 0),
               child: TextField(
                 onChanged: (text) {
-                  loginName = text;
+                  login = text;
                 },
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -131,29 +131,42 @@ class _RegisterState extends State<registerPage> {
                     });
                   }
 
-                  String payload = '{"firstname":"' +
+                  /*String payload = '{"firstname":"' +
                       firstname.trim() +
                       '","lastname":"' +
                       lastname.trim() +
                       '","login":"' +
-                      loginName.trim() +
+                      login.trim() +
                       '","password":"' +
                       password.trim() +
                       '","email":"' +
                       email.trim() +
                       '"}';
-
+*/
+                  final jsonEncoder = JsonEncoder();
                   var jsonObject;
+                  var obj = {
+                    "firstname": firstname.trim(),
+                    "lastname": lastname.trim(),
+                    "username": login.trim(),
+                    "password": password.trim(),
+                    "email": email.trim(),
+                  };
+
+                  var js = jsonEncoder.convert(obj);
                   try {
                     String url = 'https://large21.herokuapp.com/api/register';
-                    String ret = await getAPI.getJson(url, payload);
+                    String ret = await getAPI.getJson(url, js);
                     jsonObject = json.decode(ret);
                   } catch (e) {
                     newMessageText = jsonObject["error"];
                     changeText();
                     return;
                   }
-                  Navigator.pushNamed(context, '/login');
+                  if (jsonObject["Verification"] == false) {
+                    Navigator.pushNamed(context, '/verify');
+                  } else
+                    Navigator.pushNamed(context, '/login');
                 },
                 child: Text(
                   'Create Account',

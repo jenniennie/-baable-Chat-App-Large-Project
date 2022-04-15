@@ -2,12 +2,12 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class getAPI {
-  static Future<String> getJson(String url, String outgoing) async {
-    String ret = "before";
-    print('input $outgoing');
+  static Future<String> getJson(String url, var outgoing) async {
+    print("input: $outgoing");
+    String ret = "";
     try {
       http.Response response = await http.post(Uri.parse(url),
-          body: utf8.encode(outgoing),
+          body: outgoing,
           headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ class getAPI {
     } catch (e) {
       print(e.toString());
     }
-    print('THE RET is: $ret');
+    print("respponse : $ret");
     return ret;
   }
 }

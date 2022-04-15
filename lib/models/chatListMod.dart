@@ -1,21 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-/*class ChatUsers {
-  String name;
-  String messageText;
-  String imageURL;
-  String time;
-  ChatUsers(
-    {
-      @required this.name,
-      @required this.messageText,
-      @required this.imageURL,
-      @required this.time
-    });
+class ChatUsers {
+  String SenderId = "";
+  String Chat = "";
+  ChatUsers({
+    @required this.SenderId = "",
+    @required this.Chat = "",
+  });
 }
-
-//temp
-class _ChatPageState extends State<ChatPage> {
-  List<ChatUsers> chatUsers = [
-    ChatUsers(text: "Jane Russel", secondaryText: "Awesome Setup", image: "images/userImage1.jpeg", time: "Now"),
-  ];*/

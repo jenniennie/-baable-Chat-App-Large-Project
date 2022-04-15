@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 
 class GlobalData {
-  static late int userId;
   static late String firstName;
   static late String lastName;
   static late String loginName;
@@ -101,32 +100,42 @@ class _LoginScreenState extends State<LoginScreen> {
                       message = newMessageText;
                     });
                   }
-
+/*
                   String payload = '{"login":"' +
                       loginName.trim() +
                       '","password":"' +
                       password.trim() +
                       '"}';
+*/
 
-                  var userId = -1;
+                  final jsonEncoder = JsonEncoder();
+
+                  var obj = {
+                    "login": loginName.trim(),
+                    "password": password.trim(),
+                  };
+
+                  var js = jsonEncoder.convert(obj);
                   var jsonObject;
+                  String firName = '';
+
                   try {
                     String url = 'https://large21.herokuapp.com/api/login';
-                    String ret = await getAPI.getJson(url, payload);
+                    String ret = await getAPI.getJson(url, js);
                     jsonObject = json.decode(ret);
-                    userId = jsonObject["id"];
+                    firName = jsonObject["firstname"];
+                    print('HEREHER: $firName');
                   } catch (e) {
                     newMessageText = jsonObject["error"];
                     changeText();
-                    return;
                   }
-                  if (userId <= 0) {
-                    newMessageText = "Incorrect Login/Password";
+                  if (firName == '') {
+                    newMessageText = "Incorrect Username/Password";
                     changeText();
                   } else {
-                    GlobalData.userId = userId;
-                    GlobalData.firstName = jsonObject["firstName"];
-                    GlobalData.lastName = jsonObject["lastName"];
+                    changeText();
+                    GlobalData.firstName = jsonObject["firstname"];
+                    GlobalData.lastName = jsonObject["lastname"];
                     GlobalData.loginName = loginName;
                     GlobalData.password = password;
                     //Navigator.pushNamed(context, '/verify');

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:baable/models/chatListMod.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:baable/screens/chatPageCenter.dart';
 
 class ChatPage extends StatefulWidget {
   @override
@@ -6,6 +9,9 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
+  List<ChatUsers> chatUsers = [
+    ChatUsers(SenderId: "SenderId", Chat: "Chat"),
+  ];
   void initState() {
     super.initState();
   }
@@ -13,58 +19,23 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SafeArea(
-              child: Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Conversations",
-                      style:
-                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 2),
-                      height: 30,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.pink[50],
-                      ),
-                      child: Row(children: <Widget>[
-                        Icon(
-                          Icons.add,
-                          color: Colors.pink,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          "Logout",
-                          style: TextStyle(
-                              fontSize: 14, fontWeight: FontWeight.bold),
-                        ),
-                        new GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/login');
-                          },
-                        )
-                      ]),
-                    )
-                  ],
-                ),
-              ),
+      body: ChatPageCenter(),
+      bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.red,
+          unselectedItemColor: Colors.grey.shade600,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: 'Chats',
             ),
-          ],
-        ),
-      ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_box),
+              label: 'Profile',
+            ),
+          ]),
     );
   }
 }
