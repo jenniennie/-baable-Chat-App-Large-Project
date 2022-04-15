@@ -148,7 +148,7 @@ class _RegisterState extends State<registerPage> {
                   var obj = {
                     "firstname": firstname.trim(),
                     "lastname": lastname.trim(),
-                    "username": login.trim(),
+                    "login": login.trim(),
                     "password": password.trim(),
                     "email": email.trim(),
                   };
