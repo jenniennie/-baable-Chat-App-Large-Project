@@ -1,5 +1,8 @@
 import 'package:baable/routes/routes.dart';
+import 'package:baable/utils/getAPI.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:baable/screens/resetPassPage2.dart';
 
 // ??????
 class resetPassPage extends StatefulWidget {
@@ -8,18 +11,15 @@ class resetPassPage extends StatefulWidget {
 }
 
 class _resetState extends State<resetPassPage> {
-  String loginName = '', newPassword = '', verificationCode = '';
+  String email = '';
+  String message = '', newMessageText = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(''), // You can add title here
-        leading: new IconButton(
-          icon: new Icon(Icons.arrow_back_ios, color: Colors.grey),
-          onPressed: () => Navigator.of(context).pop(),
-        ),
+        title: Text(''),
         backgroundColor:
             Colors.blue.withOpacity(0.3), //You can make this transparent
         elevation: 0.0, //No shadow
@@ -46,23 +46,22 @@ class _resetState extends State<resetPassPage> {
                     alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
                     child: const Text(
-                      'Please enter your username. A code sent in the email associated with your account',
+                      'Please enter your the email associated with your account. An email will be sent with a 6-digit code.',
                       style: TextStyle(fontSize: 15),
                     )),
               ),
             ),
             Padding(
-              //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
               padding: const EdgeInsets.only(
-                  left: 15.0, right: 15.0, top: 15, bottom: 0),
+                  left: 15.0, right: 15.0, top: 15, bottom: 15),
               child: TextField(
                 onChanged: (text) {
-                  verificationCode = text;
+                  email = text;
                 },
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Username',
-                    hintText: 'Username'),
+                    labelText: 'Email',
+                    hintText: 'Email'),
               ),
             ),
             Container(
@@ -71,8 +70,36 @@ class _resetState extends State<resetPassPage> {
               decoration: BoxDecoration(
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/chat');
+                onPressed: () async {
+                  newMessageText = "";
+                  changeText() {
+                    setState(() {
+                      message = newMessageText;
+                    });
+                  }
+
+                  final jsonEncoder = JsonEncoder();
+
+                  var obj = {
+                    "email": email.trim(),
+                  };
+
+                  var js = jsonEncoder.convert(obj);
+                  var jsonObject;
+                  var token = '';
+
+                  try {
+                    String url =
+                        'https://large21.herokuapp.com/api/recoveryPassword';
+                    String ret = await getAPI.getJson(url, js);
+                    jsonObject = json.decode(ret);
+                    token = jsonObject["passwordtoken"];
+
+                    Navigator.pushNamed(context, '/resetpassword2',
+                        arguments: {"email": email.trim(), "token": token});
+                  } catch (e) {
+                    newMessageText = jsonObject["error"];
+                  }
                 },
                 child: Text(
                   'Confirm',

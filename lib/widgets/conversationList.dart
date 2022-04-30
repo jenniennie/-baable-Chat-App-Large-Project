@@ -1,10 +1,11 @@
+import 'package:baable/screens/indivChat.dart';
 import 'package:flutter/material.dart';
 
 class ConversationList extends StatefulWidget {
-  String SenderId;
+  final String SenderId;
   String Chat;
-  ConversationList(
-      {@required this.SenderId = "temp", @required this.Chat = "temp"});
+  ConversationList({required this.SenderId, required this.Chat});
+
   @override
   _ConversationListState createState() => _ConversationListState();
 }
@@ -13,7 +14,10 @@ class _ConversationListState extends State<ConversationList> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => indivChat(SenderId: widget.SenderId)));
+      },
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(
@@ -41,13 +45,13 @@ class _ConversationListState extends State<ConversationList> {
                           SizedBox(
                             height: 6,
                           ),
-                          Text(
+                          /*Text(
                             widget.Chat,
                             style: TextStyle(
                               fontSize: 13,
                               color: Colors.grey.shade600,
                             ),
-                          ),
+                          ),*/
                         ],
                       ),
                     ),

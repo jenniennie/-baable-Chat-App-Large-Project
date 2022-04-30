@@ -1,14 +1,8 @@
 import 'package:baable/utils/getAPI.dart';
 import 'package:baable/routes/routes.dart';
+import 'package:baable/models/userDataMod.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
-
-class GlobalData {
-  static late String firstName;
-  static late String lastName;
-  static late String loginName;
-  static late String password;
-}
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -17,7 +11,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   @override
-  String loginName = '', password = '', message = "", newMessageText = '';
+  String loginName = '', password = '', message = '', newMessageText = '';
 
   void initState() {
     super.initState();
@@ -47,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Column(
               children: <Widget>[
-                Text('$message',
+                Text(message,
                     style: TextStyle(fontSize: 14, color: Colors.black)),
               ],
             ),
@@ -80,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             FlatButton(
               onPressed: () {
-                //TODO FORGOT PASSWORD SCREEN GOES HERE
+                Navigator.pushNamed(context, '/resetpassword');
               },
               child: Text(
                 'Forgot Password',
@@ -124,7 +118,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     String ret = await getAPI.getJson(url, js);
                     jsonObject = json.decode(ret);
                     firName = jsonObject["firstname"];
-                    print('HEREHER: $firName');
                   } catch (e) {
                     newMessageText = jsonObject["error"];
                     changeText();
@@ -138,8 +131,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     GlobalData.lastName = jsonObject["lastname"];
                     GlobalData.loginName = loginName;
                     GlobalData.password = password;
-                    //Navigator.pushNamed(context, '/verify');
-                    Navigator.pushNamed(context, '/chat');
+                    var verific = jsonObject["verification"];
+                    var email = jsonObject["email"];
+                    if (verific == false)
+                      Navigator.pushNamed(context, '/verify', arguments: {
+                        "email": email,
+                      });
+                    else
+                      Navigator.pushNamed(context, '/chat');
                   }
                 },
                 child: Text(

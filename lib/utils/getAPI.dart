@@ -3,7 +3,6 @@ import 'dart:convert';
 
 class getAPI {
   static Future<String> getJson(String url, var outgoing) async {
-    print("input: $outgoing");
     String ret = "";
     try {
       http.Response response = await http.post(Uri.parse(url),
@@ -17,7 +16,6 @@ class getAPI {
     } catch (e) {
       print(e.toString());
     }
-    print("respponse : $ret");
     return ret;
   }
 }

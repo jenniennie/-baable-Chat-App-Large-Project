@@ -17,6 +17,7 @@ dependencies: \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator15.2.sdk/usr/include/darwin_cdefs.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator15.2.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap \
   /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator15.2.sdk/usr/include/mach-o/dyld.modulemap \
+  /Users/jennifernguyen/baable/ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterViewController.h \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterPluginAppLifeCycleDelegate.h \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterHeadlessDartRunner.h \
@@ -32,4 +33,39 @@ dependencies: \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterPlugin.h \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterMacros.h \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/FlutterAppDelegate.h \
-  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/Flutter.h
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/Flutter.framework/Headers/Flutter.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/Headers/FLTFirebaseCorePlugin.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FIRVersion.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FIROptions.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FIRLoggerLevel.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FIRConfiguration.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FIRApp.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseCore/FirebaseCore.framework/Headers/FirebaseCore-umbrella.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/Headers/FLTFirebasePluginRegistry.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/Headers/FLTFirebasePlugin.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_core/firebase_core.framework/Headers/firebase_core-umbrella.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_messaging/firebase_messaging.framework/Headers/FLTFirebaseMessagingPlugin.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_messaging/firebase_messaging.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Headers/FIRInstallationsErrors.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Headers/FIRInstallationsAuthTokenResult.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Headers/FIRInstallations.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Headers/FirebaseInstallations.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseInstallations/FirebaseInstallations.framework/Headers/FirebaseInstallations-umbrella.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseMessaging/FirebaseMessaging.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseMessaging/FirebaseMessaging.framework/Headers/FIRMessagingExtensionHelper.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseMessaging/FirebaseMessaging.framework/Headers/FIRMessaging.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseMessaging/FirebaseMessaging.framework/Headers/FirebaseMessaging.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/FirebaseMessaging/FirebaseMessaging.framework/Headers/FirebaseMessaging-umbrella.h \
+  /Users/jennifernguyen/baable/ios/Pods/Headers/Public/Firebase/Firebase.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/firebase_messaging/firebase_messaging.framework/Headers/firebase_messaging-umbrella.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/FlutterChatBubblePlugin.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/flutter_chat_bubble-Swift.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/flutter_chat_bubble-umbrella.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Headers/FlutterLocalNotificationsPlugin.h \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Modules/module.modulemap \
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Headers/flutter_local_notifications-umbrella.h

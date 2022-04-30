@@ -14,7 +14,7 @@ class _RegisterState extends State<registerPage> {
       login = '',
       password = '',
       email = '',
-      message = "",
+      message = "sdfsdoi",
       newMessageText = '';
 
   @override
@@ -47,7 +47,7 @@ class _RegisterState extends State<registerPage> {
             ),
             Column(
               children: <Widget>[
-                Text('$message',
+                Text(message,
                     style: TextStyle(fontSize: 14, color: Colors.black)),
               ],
             ),
@@ -124,7 +124,7 @@ class _RegisterState extends State<registerPage> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
                 onPressed: () async {
-                  newMessageText = "";
+                  newMessageText = '';
                   changeText() {
                     setState(() {
                       message = newMessageText;
@@ -152,21 +152,29 @@ class _RegisterState extends State<registerPage> {
                     "password": password.trim(),
                     "email": email.trim(),
                   };
-
+                  var verification;
                   var js = jsonEncoder.convert(obj);
                   try {
                     String url = 'https://large21.herokuapp.com/api/register';
                     String ret = await getAPI.getJson(url, js);
                     jsonObject = json.decode(ret);
+                    verification = jsonObject["verification"];
+                    print('verific : $verification');
+                    changeText();
                   } catch (e) {
                     newMessageText = jsonObject["error"];
                     changeText();
-                    return;
                   }
-                  if (jsonObject["Verification"] == false) {
-                    Navigator.pushNamed(context, '/verify');
-                  } else
+                  if (verification == false && jsonObject["error"] == "")
+                    Navigator.pushNamed(context, '/verify', arguments: {
+                      "email": email.trim(),
+                    });
+                  else if (jsonObject["error"] == "")
                     Navigator.pushNamed(context, '/login');
+                  else {
+                    newMessageText = jsonObject["error"];
+                    changeText();
+                  }
                 },
                 child: Text(
                   'Create Account',

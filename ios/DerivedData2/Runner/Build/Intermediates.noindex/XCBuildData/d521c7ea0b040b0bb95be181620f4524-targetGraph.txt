@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Pods-Runner in Pods, no dependencies
+Runner in Runner, depends on:
+Pods-Runner in Pods (implicit dependency via file 'Pods_Runner.framework' in build phase 'Link Binary')
