@@ -37,8 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.4
   flutter_chat_bubble: ^2.0.0
   socket_io_client: ^1.0.2
-  firebase_core: ^1.14.1 # required for initializing firebase app
-  firebase_messaging: ^11.2.13 # required for sending/receiving messages through FCM
   web_socket_channel: ^2.2.0
 
 dev_dependencies:
