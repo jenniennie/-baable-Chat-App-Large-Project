@@ -1,37 +1,40 @@
-class MessagesModel {
+/*class MessagesModel {
   static final List<dynamic> messages = [];
 
   static updateMessages(dynamic message) async {
     messages.add(message);
   }
-}
- /* final String? userId;
-  final String? userName;
+}*/
+import 'dart:convert';
 
-  final String? message;
-  final String? time;
+ChatModel chatModelFromJson(String str) => ChatModel.fromJson(json.decode(str));
 
-  MessagesModel({
-    this.userId,
-    this.userName,
-    this.message,
-    this.time,
+String chatModelToJson(ChatModel data) => json.encode(data.toJson());
+
+class ChatModel {
+  ChatModel({
+    required this.id,
+    required this.username,
+    required this.sentAt,
+    required this.message,
   });
 
-  factory MessagesModel.fromRawJson(Map<String, dynamic> jsonData) {
-    return MessagesModel(
-        userId: jsonData['userId'],
-        userName: jsonData['userName'],
-        message: jsonData['message'],
-        time: jsonData['time']);
-  }
-  Map<String, dynamic> toJson() {
-    return {
-      "userId": userId,
-      "userName": userName,
-      "message": message,
-      "time": time,
-    };
-  }
+  String id;
+  String username;
+  String sentAt;
+  String message;
+
+  factory ChatModel.fromJson(Map<String, dynamic> json) => ChatModel(
+        id: json["id"],
+        username: json["username"],
+        sentAt: json["sentAt"],
+        message: json["message"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "username": username,
+        "sentAt": sentAt,
+        "message": message,
+      };
 }
-*/

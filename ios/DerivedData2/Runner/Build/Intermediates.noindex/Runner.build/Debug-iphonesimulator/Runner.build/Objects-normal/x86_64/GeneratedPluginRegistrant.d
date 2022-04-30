@@ -65,7 +65,4 @@ dependencies: \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/FlutterChatBubblePlugin.h \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Modules/module.modulemap \
   /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/flutter_chat_bubble-Swift.h \
-  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/flutter_chat_bubble-umbrella.h \
-  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Headers/FlutterLocalNotificationsPlugin.h \
-  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Modules/module.modulemap \
-  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_local_notifications/flutter_local_notifications.framework/Headers/flutter_local_notifications-umbrella.h
+  /Users/jennifernguyen/baable/build/ios/Debug-iphonesimulator/flutter_chat_bubble/flutter_chat_bubble.framework/Headers/flutter_chat_bubble-umbrella.h
