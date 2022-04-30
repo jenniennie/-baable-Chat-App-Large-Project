@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>10E9BD06-6315-46DE-A536-0C92A3AA529D</key>
+		<key>9D86EA41-9685-4907-B9F6-BFE34D4A4E62</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,13 +15,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>10E9BD06-6315-46DE-A536-0C92A3AA529D.xcactivitylog</string>
+			<string>9D86EA41-9685-4907-B9F6-BFE34D4A4E62.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>W</string>
+				<string>E</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Runner project</string>
@@ -30,17 +30,17 @@
 			<key>schemeIdentifier-sharedScheme</key>
 			<integer>1</integer>
 			<key>signature</key>
-			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
+			<string>Building workspace Runner with scheme Runner and configuration Release</string>
 			<key>timeStartedRecording</key>
-			<real>672982302.68155205</real>
+			<real>673049187.99955201</real>
 			<key>timeStoppedRecording</key>
-			<real>672982377.61301005</real>
+			<real>673049191.191378</real>
 			<key>title</key>
-			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
+			<string>Building workspace Runner with scheme Runner and configuration Release</string>
 			<key>uniqueIdentifier</key>
-			<string>10E9BD06-6315-46DE-A536-0C92A3AA529D</string>
+			<string>9D86EA41-9685-4907-B9F6-BFE34D4A4E62</string>
 		</dict>
-		<key>5A4216CF-6DAD-4F5A-B6F9-5A090D82B983</key>
+		<key>A92525C8-6E73-4853-839D-51C695CAE270</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,13 +49,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>5A4216CF-6DAD-4F5A-B6F9-5A090D82B983.xcactivitylog</string>
+			<string>A92525C8-6E73-4853-839D-51C695CAE270.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>W</string>
+				<string>S</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Runner project</string>
@@ -64,15 +64,15 @@
 			<key>schemeIdentifier-sharedScheme</key>
 			<integer>1</integer>
 			<key>signature</key>
-			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
+			<string>Cleaning workspace Runner with scheme Runner</string>
 			<key>timeStartedRecording</key>
-			<real>673042357.69115198</real>
+			<real>673048439.52968502</real>
 			<key>timeStoppedRecording</key>
-			<real>673042397.914747</real>
+			<real>673048439.89448094</real>
 			<key>title</key>
-			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
+			<string>Cleaning workspace Runner with scheme Runner</string>
 			<key>uniqueIdentifier</key>
-			<string>5A4216CF-6DAD-4F5A-B6F9-5A090D82B983</string>
+			<string>A92525C8-6E73-4853-839D-51C695CAE270</string>
 		</dict>
 	</dict>
 </dict>
