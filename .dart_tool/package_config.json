@@ -135,13 +135,13 @@
     },
     {
       "name": "socket_io_client",
-      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/socket_io_client-1.0.2",
+      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/socket_io_client-2.0.0-beta.4-nullsafety.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "socket_io_common",
-      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/socket_io_common-1.0.1",
+      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/socket_io_common-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -200,7 +200,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-30T04:11:45.479232Z",
+  "generated": "2022-04-30T20:54:38.928823Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

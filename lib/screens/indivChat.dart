@@ -33,8 +33,8 @@ class _ChatPageState extends State<indivChat> {
   @override
   void initState() {
     try {
-      socket =
-          io("https://blooming-coast-89347.herokuapp.com/", <String, dynamic>{
+      print('connecting');
+      socket = io("https://baable-server.herokuapp.com/", <String, dynamic>{
         "transports": ["websocket"],
         "autoConnect": false,
       });
@@ -48,6 +48,7 @@ class _ChatPageState extends State<indivChat> {
 
       socket.on('message', (data) {
         var message = ChatModel.fromJson(data);
+        print(message);
         setStateIfMounted(() {
           _messages.add(message);
         });
@@ -67,7 +68,7 @@ class _ChatPageState extends State<indivChat> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          title: const Text('Chat Screen'),
+          title: Text(widget.SenderId),
           backgroundColor: const Color(0xFF271160)),
       body: SafeArea(
         child: Container(
@@ -141,7 +142,7 @@ class _ChatPageState extends State<indivChat> {
                         onPressed: () async {
                           if (_messageController.text.trim().isNotEmpty) {
                             String message = _messageController.text.trim();
-
+                            print(message);
                             socket.emit(
                                 "message",
                                 ChatModel(
