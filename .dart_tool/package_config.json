@@ -38,12 +38,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "crypto",
-      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.14"
-    },
-    {
       "name": "cupertino_icons",
       "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.4",
       "packageUri": "lib/",
@@ -200,19 +194,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "web_socket_channel",
-      "rootUri": "file:///Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/web_socket_channel-2.2.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "baable",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-30T03:46:46.188658Z",
+  "generated": "2022-04-30T04:11:45.479232Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
