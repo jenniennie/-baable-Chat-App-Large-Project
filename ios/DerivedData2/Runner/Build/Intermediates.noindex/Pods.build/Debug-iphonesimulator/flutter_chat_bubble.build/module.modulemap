@@ -1,0 +1,11 @@
+framework module flutter_chat_bubble {
+  umbrella header "flutter_chat_bubble-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module flutter_chat_bubble.Swift {
+    header "flutter_chat_bubble-Swift.h"
+    requires objc
+}
