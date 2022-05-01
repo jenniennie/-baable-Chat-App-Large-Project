@@ -34,7 +34,7 @@ class _ChatPageState extends State<indivChat> {
   void initState() {
     try {
       print('connecting');
-      socket = io("https://baable-server.herokuapp.com/", <String, dynamic>{
+      socket = io("https://large21.herokuapp.com/", <String, dynamic>{
         "transports": ["websocket"],
         "autoConnect": false,
       });
@@ -46,9 +46,15 @@ class _ChatPageState extends State<indivChat> {
         print(socket.connected);
       });
 
-      socket.on('message', (data) {
+      socket.on('receive_message', (data) {
         var message = ChatModel.fromJson(data);
-        print(message);
+        setStateIfMounted(() {
+          _messages.add(message);
+        });
+      });
+
+      socket.on('send_message', (data) {
+        var message = ChatModel.fromJson(data);
         setStateIfMounted(() {
           _messages.add(message);
         });
@@ -98,11 +104,11 @@ class _ChatPageState extends State<indivChat> {
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: _messages.map((message) {
-                                  print(message);
                                   return ChatBubble(
-                                    date: message.sentAt,
+                                    date: message.time,
                                     message: message.message,
-                                    isMe: message.id == socket.id,
+                                    isMe:
+                                        message.author == GlobalData.loginName,
                                   );
                                 }).toList()),
                           ],
@@ -142,14 +148,12 @@ class _ChatPageState extends State<indivChat> {
                         onPressed: () async {
                           if (_messageController.text.trim().isNotEmpty) {
                             String message = _messageController.text.trim();
-                            print(message);
                             socket.emit(
-                                "message",
+                                "send_message",
                                 ChatModel(
-                                        id: socket.id!,
                                         message: message,
-                                        username: GlobalData.loginName,
-                                        sentAt: DateTime.now()
+                                        author: GlobalData.loginName,
+                                        time: DateTime.now()
                                             .toLocal()
                                             .toString()
                                             .substring(0, 16))
