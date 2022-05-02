@@ -14,9 +14,25 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
-        title: Text("Baable"),
+        shape: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
+        backgroundColor: Colors.black,
+        elevation: 0,
+        title: Image.asset('assets/images/cloud.png', height: 32),
+        centerTitle: true,
+
+        /* title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/images/cloud.png',
+              fit: BoxFit.contain,
+              height: 32,
+            ),
+          ],
+        ),
+        //centerTitle: true,*/
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -60,7 +76,7 @@ class _ChatPageState extends State<ChatPage> {
                 ],
               ),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 214, 237, 255),
+                color: Color.fromARGB(255, 64, 155, 79),
               ),
             ),
             ListTile(

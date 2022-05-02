@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.4
   flutter_chat_bubble: ^2.0.0
   socket_io_client: ^2.0.0-beta.4-nullsafety.0
+  bezier: any
 
 dev_dependencies:
   flutter_test:
@@ -55,17 +56,20 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
+  
+  
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
-
+  assets:
+      - assets/images/
+    
+      
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
@@ -91,3 +95,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Slabo27px
+      fonts:
+        - asset: assets/fonts/Slabo27px-Regular.ttf
+    - family: WaterBrush
+      fonts:
+        - asset: assets/fonts/WaterBrush-Regular.ttf

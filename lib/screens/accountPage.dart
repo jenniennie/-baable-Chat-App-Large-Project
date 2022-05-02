@@ -14,14 +14,15 @@ class accountState extends State<accountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: AppBar(
+          shape: Border(bottom: BorderSide(color: Colors.grey, width: 1)),
           title: Text('Account Settings'),
           leading: new IconButton(
-            icon: new Icon(Icons.arrow_back_ios, color: Colors.grey),
+            icon: new Icon(Icons.arrow_back_ios, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          backgroundColor: Colors.blue.withOpacity(0.3),
+          backgroundColor: Colors.black,
           elevation: 0.0,
         ),
         body: SafeArea(

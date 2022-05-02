@@ -80,7 +80,6 @@ class resetPassPageState extends State<resetPassPage2> {
                     });
                   }
 
-                  print('pass tock ${arguments['token']}');
                   final jsonEncoder = JsonEncoder();
 
                   if (arguments['token'] == passCode.trim()) {

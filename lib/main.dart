@@ -1,5 +1,6 @@
 import 'package:baable/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:baable/theme/defaultTheme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Baable',
-      theme:
-          ThemeData(fontFamily: 'Raleway', primaryColor: Colors.lightBlue[100]),
+      theme: CustomTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       routes: Routes.getroutes,
     );

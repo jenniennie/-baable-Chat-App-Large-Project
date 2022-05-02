@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import 'package:baable/models/chatMessageMod.dart';
 import 'package:baable/models/userDataMod.dart';
+import 'package:baable/utils/getAPI.dart';
+import 'dart:convert';
 
 class indivChat extends StatefulWidget {
   final String SenderId;
@@ -19,10 +21,11 @@ class _ChatPageState extends State<indivChat> {
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final List<ChatModel> _messages = [];
-
   final bool _showSpinner = false;
   final bool _showVisibleWidget = false;
   final bool _showErrorIcon = false;
+  final jsonEncoder = JsonEncoder();
+  String newMessageText = '';
 
   void setStateIfMounted(f) {
     if (mounted) setState(f);
@@ -41,9 +44,30 @@ class _ChatPageState extends State<indivChat> {
 
       socket.connect();
 
-      socket.on('connect', (data) {
+      socket.on('connect', (data) async {
         debugPrint('connected');
         print(socket.connected);
+        var obj = {
+          "socketid": socket.id!,
+        };
+        var js = jsonEncoder.convert(obj);
+        var jsonObject;
+        var results;
+        try {
+          String url = 'https://large21.herokuapp.com/api/loadmessages';
+          String ret = await getAPI.getJson(url, js);
+          jsonObject = json.decode(ret);
+          results = jsonObject["results"];
+          print(results.length);
+          for (var i = 0; i < results.length; i++) {
+            setStateIfMounted(() {
+              _messages.add(results[i]);
+            });
+          }
+        } catch (e) {
+          newMessageText = jsonObject["error"];
+          print('new message $newMessageText');
+        }
       });
 
       socket.on('receive_message', (data) {
@@ -75,10 +99,10 @@ class _ChatPageState extends State<indivChat> {
       appBar: AppBar(
           centerTitle: true,
           title: Text(widget.SenderId),
-          backgroundColor: const Color(0xFF271160)),
+          backgroundColor: Color.fromARGB(255, 0, 0, 0)),
       body: SafeArea(
         child: Container(
-          color: const Color(0xFFEAEFF2),
+          color: Color.fromARGB(255, 63, 63, 63),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -127,6 +151,7 @@ class _ChatPageState extends State<indivChat> {
                     Flexible(
                       child: Container(
                         child: TextField(
+                          style: TextStyle(color: Colors.black),
                           minLines: 1,
                           maxLines: 5,
                           controller: _messageController,
@@ -144,10 +169,32 @@ class _ChatPageState extends State<indivChat> {
                       height: 43,
                       width: 42,
                       child: FloatingActionButton(
-                        backgroundColor: const Color(0xFF271160),
+                        backgroundColor: Color.fromARGB(255, 64, 155, 79),
                         onPressed: () async {
+                          String message = _messageController.text.trim();
                           if (_messageController.text.trim().isNotEmpty) {
-                            String message = _messageController.text.trim();
+                            var obj = {
+                              "message": message,
+                              "author": GlobalData.loginName,
+                              "timestamp": DateTime.now()
+                                  .toLocal()
+                                  .toString()
+                                  .substring(0, 16),
+                              "socketid": socket.id!,
+                            };
+                            var js = jsonEncoder.convert(obj);
+                            var jsonObject;
+
+                            try {
+                              String url =
+                                  'https://large21.herokuapp.com/api/savemessage';
+                              String ret = await getAPI.getJson(url, js);
+                              jsonObject = json.decode(ret);
+                            } catch (e) {
+                              newMessageText = jsonObject["error"];
+                              print('new message $newMessageText');
+                            }
+
                             socket.emit(
                                 "send_message",
                                 ChatModel(
@@ -164,8 +211,9 @@ class _ChatPageState extends State<indivChat> {
                         },
                         mini: true,
                         child: Transform.rotate(
-                            angle: 5.79449,
-                            child: const Icon(Icons.send, size: 20)),
+                            angle: 0,
+                            child: const Icon(Icons.send,
+                                size: 20, color: Colors.white)),
                       ),
                     ),
                   ],
@@ -179,6 +227,7 @@ class _ChatPageState extends State<indivChat> {
   }
 }
 
+// add sender
 class ChatBubble extends StatelessWidget {
   final bool isMe;
   final String message;
@@ -205,7 +254,9 @@ class ChatBubble extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 5.0),
             constraints: BoxConstraints(maxWidth: size.width * .5),
             decoration: BoxDecoration(
-              color: isMe ? const Color(0xFFE3D8FF) : const Color(0xFFFFFFFF),
+              color: isMe
+                  ? Color.fromARGB(255, 0, 0, 0)
+                  : Color.fromARGB(255, 64, 155, 79),
               borderRadius: isMe
                   ? const BorderRadius.only(
                       topRight: Radius.circular(11),
@@ -228,8 +279,8 @@ class ChatBubble extends StatelessWidget {
                   message,
                   textAlign: TextAlign.start,
                   softWrap: true,
-                  style:
-                      const TextStyle(color: Color(0xFF2E1963), fontSize: 14),
+                  style: const TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255), fontSize: 14),
                 ),
                 Align(
                   alignment: Alignment.centerRight,
@@ -239,7 +290,8 @@ class ChatBubble extends StatelessWidget {
                       date,
                       textAlign: TextAlign.end,
                       style: const TextStyle(
-                          color: Color(0xFF594097), fontSize: 9),
+                          color: Color.fromARGB(255, 190, 190, 190),
+                          fontSize: 9),
                     ),
                   ),
                 )
