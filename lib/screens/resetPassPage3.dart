@@ -48,7 +48,7 @@ class resetPassPageState extends State<resetPassPage3> {
               child: Center(
                 child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
                     child: const Text(
                       'Please enter your new password.',
                       style: TextStyle(fontSize: 15),

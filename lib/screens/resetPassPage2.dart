@@ -47,7 +47,7 @@ class resetPassPageState extends State<resetPassPage2> {
               child: Center(
                 child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
                     child: const Text(
                       'Please enter the 6-digit code sent to the email associated with your account.',
                       style: TextStyle(fontSize: 15),

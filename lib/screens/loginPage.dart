@@ -23,6 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Baable"),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -131,6 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     GlobalData.lastName = jsonObject["lastname"];
                     GlobalData.loginName = loginName;
                     GlobalData.password = password;
+                    GlobalData.email = jsonObject["email"];
                     var verific = jsonObject["verification"];
                     var email = jsonObject["email"];
                     if (verific == false)

@@ -8,6 +8,9 @@ import 'package:baable/screens/indivChat.dart';
 import 'package:baable/screens/resetPassPage.dart';
 import 'package:baable/screens/resetPassPage2.dart';
 import 'package:baable/screens/resetPassPage3.dart';
+import 'package:baable/screens/accountPage.dart';
+import 'package:baable/screens/changeUser.dart';
+import 'package:baable/screens/changePassIn.dart';
 
 class Routes {
   static const String LOGINSCREEN = '/login';
@@ -18,6 +21,9 @@ class Routes {
   static const String RESETPASSSCREEN = '/resetpassword';
   static const String RESETPASSSCREEN2 = '/resetpassword2';
   static const String RESETPASSSCREEN3 = '/resetpassword3';
+  static const String ACCOUNTOVERVIEW = '/profile';
+  static const String CHANGEUSERNAME = '/changeUsername';
+  static const String CHANGEPASSWORD = '/changePassword';
   // routes of pages in the app
   static Map<String, Widget Function(BuildContext)> get getroutes => {
         '/': (context) => LoginScreen(),
@@ -29,5 +35,8 @@ class Routes {
         RESETPASSSCREEN: (context) => resetPassPage(),
         RESETPASSSCREEN2: (context) => resetPassPage2(email: '', token: ''),
         RESETPASSSCREEN3: (context) => resetPassPage3(email: '', token: ''),
+        ACCOUNTOVERVIEW: (context) => accountPage(),
+        CHANGEUSERNAME: (context) => changeUser(),
+        CHANGEPASSWORD: (context) => changePass(),
       };
 }

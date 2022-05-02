@@ -1,5 +1,6 @@
 import 'package:baable/utils/getAPI.dart';
 import 'package:baable/routes/routes.dart';
+import 'package:baable/models/userDataMod.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
@@ -14,7 +15,7 @@ class _RegisterState extends State<registerPage> {
       login = '',
       password = '',
       email = '',
-      message = "sdfsdoi",
+      message = '',
       newMessageText = '';
 
   @override
@@ -158,8 +159,12 @@ class _RegisterState extends State<registerPage> {
                     String url = 'https://large21.herokuapp.com/api/register';
                     String ret = await getAPI.getJson(url, js);
                     jsonObject = json.decode(ret);
+                    GlobalData.firstName = firstname.trim();
+                    GlobalData.lastName = lastname.trim();
+                    GlobalData.loginName = jsonObject["login"];
+                    GlobalData.password = jsonObject["password"];
+                    GlobalData.email = jsonObject["email"];
                     verification = jsonObject["verification"];
-                    print('verific : $verification');
                     changeText();
                   } catch (e) {
                     newMessageText = jsonObject["error"];

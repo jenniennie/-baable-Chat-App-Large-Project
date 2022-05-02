@@ -11,8 +11,7 @@ class resetPassPage extends StatefulWidget {
 }
 
 class _resetState extends State<resetPassPage> {
-  String email = '';
-  String message = '', newMessageText = '';
+  String email = '', message = '', newMessageText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class _resetState extends State<resetPassPage> {
               child: Center(
                 child: Container(
                     alignment: Alignment.center,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(15),
                     child: const Text(
                       'Please enter your the email associated with your account. An email will be sent with a 6-digit code.',
                       style: TextStyle(fontSize: 15),

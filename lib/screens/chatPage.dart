@@ -1,52 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:baable/models/chatListMod.dart';
-
-import 'package:baable/screens/chatPageCenter.dart';
-import 'package:baable/screens/contactPageCenter.dart';
+import 'package:baable/widgets/conversationList.dart';
+import 'package:baable/models/userDataMod.dart';
 
 class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
+List<ChatUsers> chatUsers = [ChatUsers(SenderId: "My Flock")];
+
 class _ChatPageState extends State<ChatPage> {
-  List<ChatUsers> chatUsers = [
-    ChatUsers(SenderId: "SenderId"),
-  ];
-
-  List<Widget> _pages = [ChatPageCenter(), contactPageCenter()];
-  int selectedPage = 0;
-
-  void initState() {
-    super.initState();
-    selectedPage = 0;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[selectedPage],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.message),
-            label: 'Chats',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_box),
-            label: 'Contacts',
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            selectedPage = index;
-          });
-        },
-        selectedItemColor: Colors.red, // COLOR CHANGEQ11!@RWEOHIFAO;IEW
-        unselectedItemColor: Colors.grey.shade600,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
-        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("Baable"),
+      ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ListView.builder(
+              itemCount: chatUsers.length,
+              shrinkWrap: true,
+              padding: EdgeInsets.only(top: 16),
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (context, index) {
+                return ConversationList(
+                  SenderId: chatUsers[index].SenderId,
+                  Chat: chatUsers[index].Chat,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  CircleAvatar(
+                    //backgroundImage: NetworkImage(widget.imageUrl),
+                    maxRadius: 50,
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    GlobalData.firstName + " " + GlobalData.lastName,
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 214, 237, 255),
+              ),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pushNamed(context, '/chat');
+              },
+            ),
+            ListTile(
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+            ListTile(
+              title: const Text('Logout'),
+              onTap: () {
+                Navigator.pushNamed(context, '/login');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
