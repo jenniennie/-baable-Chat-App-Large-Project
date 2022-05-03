@@ -26,40 +26,39 @@ Future _getLocation() async {
 
   var _permissionGranted = await location.hasPermission();
   _serviceEnabled = await location.serviceEnabled();
-  print(_permissionGranted);
+  print(_serviceEnabled);
   if (_permissionGranted != PermissionStatus.granted || !_serviceEnabled) {
     ///asks permission and enable location dialogs
     _permissionGranted = await location.requestPermission();
     _serviceEnabled = await location.requestService();
   } else {
-    print('no request');
+    print('no request needed');
   }
 
   LocationData _currentPosition = await location.getLocation();
 
   longitude_data = _currentPosition.longitude.toString();
   latitude_data = _currentPosition.latitude.toString();
+  findRoom();
 }
 
 void findRoom() async {
-  if (longitude_data != '' && latitude_data != '') {
-    var obj = {
-      "latitude": latitude_data,
-      "longitude": longitude_data,
-    };
-    var js = jsonEncoder.convert(obj);
-    var jsonObject;
-    var roomname;
-    try {
-      String url = 'https://large21.herokuapp.com/api/check-geofence';
-      String ret = await getAPI.getJson(url, js);
-      jsonObject = json.decode(ret);
-      roomname = jsonObject["name"];
-      chatUsers.add(ChatUsers(SenderId: "roomname"));
-    } catch (e) {
-      newMessageText = jsonObject["error"];
-      print('new message $newMessageText');
-    }
+  var obj = {
+    "latitude": latitude_data,
+    "longitude": longitude_data,
+  };
+  var js = jsonEncoder.convert(obj);
+  var jsonObject;
+  var roomname;
+  try {
+    String url = 'https://large21.herokuapp.com/api/check-geofence';
+    String ret = await getAPI.getJson(url, js);
+    jsonObject = json.decode(ret);
+    roomname = jsonObject["name"];
+    chatUsers.add(ChatUsers(SenderId: roomname));
+  } catch (e) {
+    newMessageText = jsonObject["error"];
+    print('new message $newMessageText');
   }
 }
 
@@ -67,8 +66,6 @@ class _ChatPageState extends State<ChatPage> {
   @override
   void initState() {
     _getLocation();
-    findRoom();
-
     super.initState();
   }
 
@@ -143,7 +140,7 @@ class _ChatPageState extends State<ChatPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   CircleAvatar(
-                    //backgroundImage: NetworkImage(widget.imageUrl),
+                    backgroundImage: AssetImage('assets/images/lilshep.png'),
                     maxRadius: 50,
                   ),
                   SizedBox(

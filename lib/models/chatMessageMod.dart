@@ -13,24 +13,32 @@ String chatModelToJson(ChatModel data) => json.encode(data.toJson());
 
 class ChatModel {
   ChatModel({
+    required this.roomName,
+    required this.socketId,
     required this.author,
     required this.time,
     required this.message,
   });
 
+  String roomName;
+  String socketId;
   String author;
   String time;
   String message;
 
   factory ChatModel.fromJson(Map<String, dynamic> json) => ChatModel(
+        roomName: json["roomName"],
+        socketId: json["socketId"],
         author: json["author"],
-        time: json["time"],
         message: json["message"],
+        time: json["time"],
       );
 
   Map<String, dynamic> toJson() => {
+        "roomName": roomName,
+        "socketId": socketId,
         "author": author,
-        "time": time,
         "message": message,
+        "time": time,
       };
 }

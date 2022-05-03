@@ -31,7 +31,7 @@ class accountState extends State<accountPage> {
             height: 15,
           ),
           CircleAvatar(
-            //backgroundImage: NetworkImage(widget.imageUrl),
+            backgroundImage: AssetImage('assets/images/lilshep.png'),
             maxRadius: 50,
           ),
           SizedBox(

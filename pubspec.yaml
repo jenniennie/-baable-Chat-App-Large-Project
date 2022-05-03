@@ -101,6 +101,3 @@ flutter:
     - family: Slabo27px
       fonts:
         - asset: assets/fonts/Slabo27px-Regular.ttf
-    - family: WaterBrush
-      fonts:
-        - asset: assets/fonts/WaterBrush-Regular.ttf

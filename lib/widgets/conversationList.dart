@@ -24,10 +24,6 @@ class _ConversationListState extends State<ConversationList> {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  CircleAvatar(
-                    //backgroundImage: NetworkImage(widget.imageUrl),
-                    maxRadius: 30,
-                  ),
                   SizedBox(
                     width: 16,
                   ),
