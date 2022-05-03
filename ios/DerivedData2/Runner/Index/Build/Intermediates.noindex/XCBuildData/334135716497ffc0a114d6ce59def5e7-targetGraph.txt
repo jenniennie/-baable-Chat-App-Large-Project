@@ -1,0 +1,36 @@
+Target dependency graph (14 targets)
+Flutter in Pods, no dependencies
+flutter_chat_bubble in Pods, depends on:
+Flutter in Pods (explicit)
+Flutter in Pods, no dependencies
+flutter_chat_bubble in Pods, depends on:
+Flutter in Pods (explicit)
+Flutter in Pods, no dependencies
+flutter_chat_bubble in Pods, depends on:
+Flutter in Pods (explicit)
+geolocator_apple in Pods, depends on:
+Flutter in Pods (explicit)
+Pods-Runner in Pods, depends on:
+Flutter in Pods (explicit)
+flutter_chat_bubble in Pods (explicit)
+geolocator_apple in Pods (explicit)
+geolocator_apple in Pods, depends on:
+Flutter in Pods (explicit)
+Pods-Runner in Pods, depends on:
+Flutter in Pods (explicit)
+flutter_chat_bubble in Pods (explicit)
+geolocator_apple in Pods (explicit)
+geolocator_apple in Pods, depends on:
+Flutter in Pods (explicit)
+Pods-Runner in Pods, depends on:
+Flutter in Pods (explicit)
+flutter_chat_bubble in Pods (explicit)
+geolocator_apple in Pods (explicit)
+Runner in Runner, depends on:
+Pods-Runner in Pods (implicit dependency via file 'Pods_Runner.framework' in build phase 'Link Binary')
+flutter_chat_bubble in Pods (implicit dependency via options '-framework flutter_chat_bubble' in build setting 'OTHER_LDFLAGS')
+geolocator_apple in Pods (implicit dependency via options '-framework geolocator_apple' in build setting 'OTHER_LDFLAGS')
+Runner in Runner, depends on:
+Pods-Runner in Pods (implicit dependency via file 'Pods_Runner.framework' in build phase 'Link Binary')
+flutter_chat_bubble in Pods (implicit dependency via options '-framework flutter_chat_bubble' in build setting 'OTHER_LDFLAGS')
+geolocator_apple in Pods (implicit dependency via options '-framework geolocator_apple' in build setting 'OTHER_LDFLAGS')

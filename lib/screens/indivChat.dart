@@ -48,7 +48,8 @@ class _ChatPageState extends State<indivChat> {
         debugPrint('connected');
         print(socket.connected);
         var obj = {
-          "socketid": socket.id!,
+          "recipient": widget.SenderId,
+          "author": GlobalData.loginName,
         };
         var js = jsonEncoder.convert(obj);
         var jsonObject;
@@ -180,7 +181,7 @@ class _ChatPageState extends State<indivChat> {
                                   .toLocal()
                                   .toString()
                                   .substring(0, 16),
-                              "socketid": socket.id!,
+                              "recipient": widget.SenderId,
                             };
                             var js = jsonEncoder.convert(obj);
                             var jsonObject;

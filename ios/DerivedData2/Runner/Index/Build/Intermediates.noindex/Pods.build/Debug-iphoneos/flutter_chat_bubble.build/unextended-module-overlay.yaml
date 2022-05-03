@@ -1,0 +1,14 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/jennifernguyen/baable/ios/DerivedData2/Runner/Index/Build/Products/Debug-iphoneos/flutter_chat_bubble/flutter_chat_bubble.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/jennifernguyen/baable/ios/DerivedData2/Runner/Index/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutter_chat_bubble.build/unextended-module.modulemap",
+    }]
+  }]
+}

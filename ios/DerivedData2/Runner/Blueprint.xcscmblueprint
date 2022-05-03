@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4BB025BB14947D9975243489776C6CCCE9389316",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4BB025BB14947D9975243489776C6CCCE9389316" : 0,
+    "ECD0A59EC88E1BC7C473949BACEA86800ADECCFD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8733E835-F790-4631-BB9E-FFDB3251AB46",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4BB025BB14947D9975243489776C6CCCE9389316" : "baable\/",
+    "ECD0A59EC88E1BC7C473949BACEA86800ADECCFD" : "..\/..\/Applications\/development\/flutter"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Runner",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ios\/Runner.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/jenniennie\/-baable-Chat-App-Large-Project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4BB025BB14947D9975243489776C6CCCE9389316"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/flutter\/flutter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ECD0A59EC88E1BC7C473949BACEA86800ADECCFD"
+    }
+  ]
+}

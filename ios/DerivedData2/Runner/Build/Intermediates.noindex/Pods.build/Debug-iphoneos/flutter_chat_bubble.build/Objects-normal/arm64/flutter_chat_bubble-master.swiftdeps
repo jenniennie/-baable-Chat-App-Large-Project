@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)"
+options: "ceac1861c33c041f8c060024855ca1501eb0cd28bc94343f0578b6563fd42d9e"
+build_start_time: [1651550924, 397433996]
+build_end_time: [1651550925, 584569931]
+inputs:
+  ? "/Applications/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_chat_bubble-2.0.0/ios/Classes/SwiftFlutterChatBubblePlugin.swift"
+  : [1651369813, 896986007]

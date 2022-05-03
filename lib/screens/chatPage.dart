@@ -2,17 +2,97 @@ import 'package:flutter/material.dart';
 import 'package:baable/models/chatListMod.dart';
 import 'package:baable/widgets/conversationList.dart';
 import 'package:baable/models/userDataMod.dart';
+//import 'package:geolocator/geolocator.dart';
+//import 'package:location_permissions/location_permissions.dart';
+import 'package:location/location.dart';
+import 'package:baable/utils/getAPI.dart';
+//import 'package:permission_handler/permission_handler.dart' as perm;
+import 'dart:convert';
 
 class ChatPage extends StatefulWidget {
   @override
   _ChatPageState createState() => _ChatPageState();
 }
 
-List<ChatUsers> chatUsers = [ChatUsers(SenderId: "My Flock")];
+List<ChatUsers> chatUsers = [];
+String latitude_data = '';
+String longitude_data = '';
+String newMessageText = '';
+late bool _serviceEnabled;
+final jsonEncoder = JsonEncoder();
+
+Future _getLocation() async {
+  Location location = new Location();
+
+  var _permissionGranted = await location.hasPermission();
+  _serviceEnabled = await location.serviceEnabled();
+  print(_permissionGranted);
+  if (_permissionGranted != PermissionStatus.granted || !_serviceEnabled) {
+    ///asks permission and enable location dialogs
+    _permissionGranted = await location.requestPermission();
+    _serviceEnabled = await location.requestService();
+  } else {
+    print('no request');
+  }
+
+  LocationData _currentPosition = await location.getLocation();
+
+  longitude_data = _currentPosition.longitude.toString();
+  latitude_data = _currentPosition.latitude.toString();
+}
+
+void findRoom() async {
+  if (longitude_data != '' && latitude_data != '') {
+    var obj = {
+      "latitude": latitude_data,
+      "longitude": longitude_data,
+    };
+    var js = jsonEncoder.convert(obj);
+    var jsonObject;
+    var roomname;
+    try {
+      String url = 'https://large21.herokuapp.com/api/check-geofence';
+      String ret = await getAPI.getJson(url, js);
+      jsonObject = json.decode(ret);
+      roomname = jsonObject["name"];
+      chatUsers.add(ChatUsers(SenderId: "roomname"));
+    } catch (e) {
+      newMessageText = jsonObject["error"];
+      print('new message $newMessageText');
+    }
+  }
+}
 
 class _ChatPageState extends State<ChatPage> {
   @override
+  void initState() {
+    _getLocation();
+    findRoom();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    /*_getCurrentLocation() {
+      print('goeshere');
+      Geolocator.getCurrentPosition(
+              desiredAccuracy: LocationAccuracy.best,
+              forceAndroidLocationManager: true)
+          .then((Position position) {
+        setState(() {
+          _currentPosition = position;
+        });
+      }).catchError((e) {
+        print(e);
+      });
+    }*/
+
+    //_getCurrentLocation();
+
+    //print('$_currentPosition.latitude');
+
+    //print('LAT: ${_currentPosition.latitude}, LNG: ${_currentPosition.longitude}');
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: AppBar(
@@ -47,7 +127,6 @@ class _ChatPageState extends State<ChatPage> {
               itemBuilder: (context, index) {
                 return ConversationList(
                   SenderId: chatUsers[index].SenderId,
-                  Chat: chatUsers[index].Chat,
                 );
               },
             ),
@@ -102,4 +181,6 @@ class _ChatPageState extends State<ChatPage> {
       ),
     );
   }
+
+  void updateState() {}
 }

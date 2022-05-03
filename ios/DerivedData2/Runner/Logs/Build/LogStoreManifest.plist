@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>41633CC2-CAD6-4C75-9D98-58B6C7B7E7CD</key>
+		<key>77AABE43-91ED-4147-AEE7-4B08AC071FA6</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,13 +15,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>41633CC2-CAD6-4C75-9D98-58B6C7B7E7CD.xcactivitylog</string>
+			<string>77AABE43-91ED-4147-AEE7-4B08AC071FA6.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>W</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Runner project</string>
@@ -30,17 +30,17 @@
 			<key>schemeIdentifier-sharedScheme</key>
 			<integer>1</integer>
 			<key>signature</key>
-			<string>Cleaning workspace Runner with scheme Runner</string>
+			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>673218015.55914295</real>
+			<real>673244027.80595398</real>
 			<key>timeStoppedRecording</key>
-			<real>673218015.73834395</real>
+			<real>673244035.71658003</real>
 			<key>title</key>
-			<string>Cleaning workspace Runner with scheme Runner</string>
+			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>41633CC2-CAD6-4C75-9D98-58B6C7B7E7CD</string>
+			<string>77AABE43-91ED-4147-AEE7-4B08AC071FA6</string>
 		</dict>
-		<key>E90FF980-F249-4B7C-9D0D-CF614D0277D1</key>
+		<key>BF2BCDE5-C729-4DAD-BC28-F39E7143B7ED</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,13 +49,13 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>E90FF980-F249-4B7C-9D0D-CF614D0277D1.xcactivitylog</string>
+			<string>BF2BCDE5-C729-4DAD-BC28-F39E7143B7ED.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>W</string>
 			</dict>
 			<key>schemeIdentifier-containerName</key>
 			<string>Runner project</string>
@@ -66,13 +66,13 @@
 			<key>signature</key>
 			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>673206113.790254</real>
+			<real>673245694.57100105</real>
 			<key>timeStoppedRecording</key>
-			<real>673206140.71195102</real>
+			<real>673245728.45124495</real>
 			<key>title</key>
 			<string>Building workspace Runner with scheme Runner and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>E90FF980-F249-4B7C-9D0D-CF614D0277D1</string>
+			<string>BF2BCDE5-C729-4DAD-BC28-F39E7143B7ED</string>
 		</dict>
 	</dict>
 </dict>

@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)"
+options: "7513d104fb00fcdc59ddf44a0a5e2e019956211bb8fb1ad57dbd9112a4416193"
+build_start_time: [1651550886, 138571977]
+build_end_time: [1651550886, 904914855]
+inputs:
+  "/Users/jennifernguyen/baable/ios/Runner/AppDelegate.swift": [1646278331, 0]
