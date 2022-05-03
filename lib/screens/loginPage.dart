@@ -21,7 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(0, 150, 0, 30),
         child: Column(
           children: <Widget>[

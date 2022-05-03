@@ -26,12 +26,36 @@ class _ChatPageState extends State<indivChat> {
   final bool _showErrorIcon = false;
   final jsonEncoder = JsonEncoder();
   String newMessageText = '';
+  late Socket socket;
 
   void setStateIfMounted(f) {
     if (mounted) setState(f);
   }
 
-  late Socket socket;
+  void getPrevMessages() async {
+    var obj = {
+      "recipient": widget.SenderId,
+      "author": GlobalData.loginName,
+    };
+    var js = jsonEncoder.convert(obj);
+    var jsonObject;
+    var results;
+    try {
+      String url = 'https://large21.herokuapp.com/api/loadmessages';
+      String ret = await getAPI.getJson(url, js);
+      jsonObject = json.decode(ret);
+      results = jsonObject["results"];
+      print(results.length);
+      for (var i = 0; i < results.length; i++) {
+        setStateIfMounted(() {
+          _messages.add(results[i]);
+        });
+      }
+    } catch (e) {
+      newMessageText = jsonObject["error"];
+      print('new message $newMessageText');
+    }
+  }
 
   @override
   void initState() {
@@ -43,32 +67,11 @@ class _ChatPageState extends State<indivChat> {
       });
 
       socket.connect();
-
+      socket.emit("join_room", widget.SenderId);
       socket.on('connect', (data) async {
         debugPrint('connected');
         print(socket.connected);
-        var obj = {
-          "recipient": widget.SenderId,
-          "author": GlobalData.loginName,
-        };
-        var js = jsonEncoder.convert(obj);
-        var jsonObject;
-        var results;
-        try {
-          String url = 'https://large21.herokuapp.com/api/loadmessages';
-          String ret = await getAPI.getJson(url, js);
-          jsonObject = json.decode(ret);
-          results = jsonObject["results"];
-          print(results.length);
-          for (var i = 0; i < results.length; i++) {
-            setStateIfMounted(() {
-              _messages.add(results[i]);
-            });
-          }
-        } catch (e) {
-          newMessageText = jsonObject["error"];
-          print('new message $newMessageText');
-        }
+        getPrevMessages();
       });
 
       socket.on('receive_message', (data) {

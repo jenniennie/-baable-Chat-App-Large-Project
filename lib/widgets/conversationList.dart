@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class ConversationList extends StatefulWidget {
   final String SenderId;
-  String Chat;
-  ConversationList({required this.SenderId, required this.Chat});
+  ConversationList({Key? key, required this.SenderId}) : super(key: key);
 
   @override
   _ConversationListState createState() => _ConversationListState();
